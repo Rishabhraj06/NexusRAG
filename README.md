@@ -3,6 +3,10 @@
 > **Enterprise Multi-Agent Hybrid Retrieval-Augmented Generation Engine**  
 > *Combining Dense Semantic Vector Embeddings and Okapi BM25 Sparse Lexical Search via Reciprocal Rank Fusion (RRF) with Self-Reflective Corrective RAG.*
 
+<div align="center">
+  <img src="assets/demo.gif" width="100%" alt="NexusRAG Live Hybrid Retrieval Demo Video"/>
+</div>
+
 ---
 
 ## ⚡ Interactive Query & Retrieval Demo
