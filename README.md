@@ -5,6 +5,42 @@
 
 ---
 
+## ⚡ Interactive Query & Retrieval Demo
+
+```
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ ⚡ NexusRAG Hybrid Retrieval & Corrective Reflection Demo                   │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+User Query: "How does Raft maintain log replication consistency?"
+
+1. 🔍 Query Expansion Agent:
+   - Base query: "How does Raft maintain log replication consistency?"
+   - Technical keywords: "raft log replication consistency state machine"
+
+2. 📊 Hybrid Multi-Tier Retrieval (Top Fused Chunks):
+   ┌──────┬───────────────────────┬────────────┬─────────────┬─────────────┐
+   │ Rank │ Source File           │ RRF Score  │ BM25 Score  │ Dense Sim   │
+   ├──────┼───────────────────────┼────────────┼─────────────┼─────────────┤
+   │  #1  │ raft_consensus.md:c2  │  0.0328    │    8.42     │   0.9241    │
+   │  #2  │ distributed_sys.md:c5 │  0.0315    │    7.19     │   0.8870    │
+   └──────┴───────────────────────┴────────────┴─────────────┴─────────────┘
+
+3. 🛡️ Corrective RAG (CRAG) Relevance Assessment:
+   - Status: SUFFICIENT (94% query term coverage)
+   - Decision: Proceed directly to Grounded Synthesis without query expansion
+
+4. 📝 Grounded Synthesis with Verified Citations:
+   "Raft maintains log replication consistency by enforcing that the leader 
+    accepts all client log entries, writes them to its local log, and replicates
+    them to follower nodes via AppendEntries RPCs. An entry is committed only 
+    when safe on a majority of nodes [raft_consensus.md:chunk 2]."
+    
+    Latency: 18.2 ms | Candidate Chunks: 4 | Model: gemini-2.5-flash
+```
+
+---
+
 ## 🎯 The Core Problem Solved
 
 Standard RAG systems in production suffer from two fatal flaws:
